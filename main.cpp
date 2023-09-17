@@ -4,23 +4,25 @@ constexpr int N_ELEMENTS = 100;
 
 int main()
 {
-    int *b = new int[NELEMENTS]; // NELEMENTS nem N_ELEMENTS-ként van írva
-    std::cout << '1-100 ertekek duplazasa' // Nincs ; lezárás a kódsor végén + '' van használva "" helyett 
-    for (int i = 0;) //Hiányos for-ciklus
+    int *b = new int[N_ELEMENTS]; // NELEMENTS kijavítva
+    std::cout << "1-100 ertekek duplazasa"; // ; javítva, "" javítva
+    for (int i = 0; i < N_ELEMENTS; i++) //for ciklus kiegészítve
     {
         b[i] = i * 2;
     }
-    for (int i = 0; i; i++)
+    for (int i = 0; i < N_ELEMENTS; i++) // for-ciklus kiegészítve
     {
-        std::cout << "Ertek:"  // Nincs ; lezárás a kódsor végén + a kiíratásnál kell egy b[i]
+        std::cout << "Ertek:" << b[i] << std::endl;  // b[i] és std::endl; hozzáadva
     }    
     std::cout << "Atlag szamitasa: " << std::endl;
-    int atlag; // inicializálni kell 0 értékkel az atlag valtozot
-    for (int i = 0; i < N_ELEMENTS, i++) // for ciklus 2. elem végén , van ; helyett
+    int atlag = 0; // inicializálva
+    for (int i = 0; i < N_ELEMENTS; i++) // , kijavítva ;-re
     {
-        atlag += b[i] // Nincs ; lezárás a kódsor végén.
+        atlag += b[i]; // ; hozzáadva
     }
     atlag /= N_ELEMENTS;
-    std::cout << "Atlag: " << atlag << std::endl;  
-    return 0;   //hiányzik a memóriafelszabadítás
+    std::cout << "Atlag: " << atlag << std::endl;
+
+    delete[] b;  //memóriafelszabadítás hozzáadva
+    return 0;   
 }

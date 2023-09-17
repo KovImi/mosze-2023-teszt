@@ -24,5 +24,8 @@ int main()
     std::cout << "Atlag: " << atlag << std::endl;
 
     delete[] b;  //memóriafelszabadítás hozzáadva
+
+    std::cout << "Ezt én adtam hozzá nem te :P"
+
     return 0;   
 }
